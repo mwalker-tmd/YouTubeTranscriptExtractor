@@ -52,6 +52,11 @@ uv run transcript-extractor "https://youtu.be/dQw4w9WgXcQ" --no-timestamps
 
 # Enable verbose output (shows video title and progress)
 uv run transcript-extractor "https://youtu.be/dQw4w9WgXcQ" --verbose
+
+# Handle file conflicts automatically
+uv run transcript-extractor "https://youtu.be/dQw4w9WgXcQ" --conflict replace  # Overwrite existing
+uv run transcript-extractor "https://youtu.be/dQw4w9WgXcQ" --conflict rename   # Auto-create Video-Title(1).txt
+uv run transcript-extractor "https://youtu.be/dQw4w9WgXcQ" --conflict abort    # Cancel if file exists
 ```
 
 ### Command-line Options
@@ -62,6 +67,7 @@ uv run transcript-extractor "https://youtu.be/dQw4w9WgXcQ" --verbose
 - `--list-languages`: Show available languages for the video
 - `--no-timestamps`: Exclude timestamps from text output
 - `--verbose`, `-v`: Enable verbose output
+- `--conflict`: Handle file conflicts (prompt, replace, rename, abort)
 
 ## Supported URL Formats
 
