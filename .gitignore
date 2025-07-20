@@ -154,6 +154,6 @@ Thumbs.db
 # UV specific
 .python-version
 
-# GitHub specific
-.github/
+# GitHub specific (allow workflows)
+!.github/
 !.github/workflows/ 
