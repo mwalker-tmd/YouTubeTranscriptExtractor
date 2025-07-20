@@ -38,10 +38,23 @@ transcript-extractor = "transcript_extractor.cli:main"
 [project.optional-dependencies]
 dev = [
     "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
     "black>=22.0.0",
     "isort>=5.10.0",
     "flake8>=4.0.0",
     "mypy>=0.950",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = [
+    "--cov=transcript_extractor",
+    "--cov-report=html",
+    "--cov-report=term-missing",
+    "--strict-markers",
+    "-v"
 ]
 
 [project.urls]
