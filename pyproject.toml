@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "YouTube transcript extractor with command-line interface"
 readme = "README.md"
 requires-python = ">=3.8"
-license = {text = "MIT"}
+license = {file = "LICENSE"}
 authors = [
     {name = "User", email = "user@example.com"},
 ]
@@ -58,9 +58,9 @@ addopts = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/user/transcript-extractor"
-Repository = "https://github.com/user/transcript-extractor"
-Issues = "https://github.com/user/transcript-extractor/issues"
+Homepage = "https://github.com/mwalker-tmd/YouTubeTranscriptExtractor"
+Repository = "https://github.com/mwalker-tmd/YouTubeTranscriptExtractor"
+Issues = "https://github.com/mwalker-tmd/YouTubeTranscriptExtractor/issues"
 
 [tool.black]
 line-length = 88

@@ -1,5 +1,11 @@
 # YouTube Transcript Extractor
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Tests](https://github.com/mwalker-tmd/YouTubeTranscriptExtractor/workflows/Tests/badge.svg)](https://github.com/mwalker-tmd/YouTubeTranscriptExtractor/actions)
+
+YouTube Transcript Extractor
+
 A command-line tool for extracting transcripts from YouTube videos with timestamps.
 
 ## Features
@@ -235,6 +241,32 @@ uv sync
 uv tree
 ```
 
+## Repository
+
+This project is hosted on GitHub: [YouTubeTranscriptExtractor](https://github.com/mwalker-tmd/YouTubeTranscriptExtractor)
+
+### Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature-name`
+3. Make your changes and add tests
+4. Run the test suite: `uv run pytest`
+5. Commit your changes: `git commit -m "Add feature"`
+6. Push to your fork: `git push origin feature-name`
+7. Submit a pull request
+
+### Issues
+
+Found a bug or have a feature request? Please [open an issue](https://github.com/mwalker-tmd/YouTubeTranscriptExtractor/issues).
+
 ## License
 
-MIT License 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+The MIT License allows you to:
+- ✅ Use commercially
+- ✅ Modify and distribute
+- ✅ Include in proprietary software
+- ✅ Use privately
+
+Just include the original license and copyright notice in any distributions. 

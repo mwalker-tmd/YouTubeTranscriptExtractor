@@ -1,4 +1,4 @@
-"""YouTube Transcript Extractor
+"""YouTubeTranscriptExtractor
 
 A Python package for extracting transcripts from YouTube videos with timestamps.
 """
