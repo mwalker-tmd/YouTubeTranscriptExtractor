@@ -61,13 +61,17 @@ uv run transcript-extractor "https://youtu.be/dQw4w9WgXcQ" --conflict abort    #
 
 ### Command-line Options
 
-- `--output`, `-o`: Output filename
-- `--format`, `-f`: Output format (text or json)
-- `--language`, `-l`: Language code (e.g., en, es, fr)
-- `--list-languages`: Show available languages for the video
-- `--no-timestamps`: Exclude timestamps from text output
-- `--verbose`, `-v`: Enable verbose output
-- `--conflict`: Handle file conflicts (prompt, replace, rename, abort)
+- `--output`, `-o`: Output filename (relative paths use transcripts folder, absolute paths used directly)
+- `--format`, `-f`: Output format (text or json, default: text)
+- `--language`, `-l`: Language code for transcript (e.g., en, es, fr, de)
+- `--list-languages`: Show available languages for the video (doesn't extract transcript)
+- `--no-timestamps`: Exclude timestamps from text output (plain text only)
+- `--verbose`, `-v`: Enable verbose output (shows video title, progress, and debug info)
+- `--conflict`: Handle file conflicts when output file exists:
+  - `prompt` (default): Interactive prompts to Replace/Create/Abort
+  - `replace`: Always overwrite existing files
+  - `rename`: Auto-generate unique filenames with (1), (2), etc.
+  - `abort`: Cancel operation if file already exists
 
 ## Supported URL Formats
 
@@ -83,12 +87,59 @@ uv run transcript-extractor "https://youtu.be/dQw4w9WgXcQ" --conflict abort    #
 
 ## Development
 
-Install development dependencies:
+### Install Development Dependencies
+
+Install all development tools including testing, linting, and formatting:
 ```bash
 uv sync --extra dev
 ```
 
-This includes tools for code formatting, linting, and testing.
+This includes:
+- `pytest` - Testing framework
+- `pytest-cov` - Coverage reporting
+- `black` - Code formatting
+- `isort` - Import sorting
+- `flake8` - Linting
+- `mypy` - Type checking
+
+### Running Tests
+
+Run the full test suite with coverage:
+```bash
+uv run pytest
+```
+
+Run tests with verbose output:
+```bash
+uv run pytest -v
+```
+
+Run specific test file:
+```bash
+uv run pytest tests/test_extractor.py
+```
+
+### Code Quality
+
+Format code with black:
+```bash
+uv run black transcript_extractor/ tests/
+```
+
+Sort imports:
+```bash
+uv run isort transcript_extractor/ tests/
+```
+
+Run linting:
+```bash
+uv run flake8 transcript_extractor/ tests/
+```
+
+Type checking:
+```bash
+uv run mypy transcript_extractor/
+```
 
 ## Python API
 
@@ -108,6 +159,80 @@ languages = extractor.get_available_languages("dQw4w9WgXcQ")
 # Save to file
 extractor.save_transcript_text(transcript, "transcript.txt")
 extractor.save_transcript_json(transcript, "transcript.json")
+```
+
+## All Available Commands
+
+### Project Setup
+```bash
+# Install project dependencies
+uv sync
+
+# Install with development tools
+uv sync --extra dev
+```
+
+### Transcript Extraction
+```bash
+# Basic extraction
+uv run transcript-extractor "YOUTUBE_URL"
+
+# With all common options
+uv run transcript-extractor "URL" --output "filename.txt" --format text --language en --verbose
+
+# JSON format with conflict handling
+uv run transcript-extractor "URL" --format json --conflict rename
+
+# List available languages only
+uv run transcript-extractor "URL" --list-languages
+
+# Plain text without timestamps
+uv run transcript-extractor "URL" --no-timestamps
+```
+
+### Development & Testing
+```bash
+# Run all tests with coverage
+uv run pytest
+
+# Run tests with verbose output  
+uv run pytest -v
+
+# Run specific test file
+uv run pytest tests/test_extractor.py
+
+# Run specific test function
+uv run pytest tests/test_cli.py::TestCLI::test_basic_extraction
+```
+
+### Code Quality
+```bash
+# Format all code
+uv run black transcript_extractor/ tests/
+
+# Sort imports
+uv run isort transcript_extractor/ tests/
+
+# Check code style
+uv run flake8 transcript_extractor/ tests/
+
+# Type checking
+uv run mypy transcript_extractor/
+```
+
+### Package Management
+```bash
+# Add new dependency
+uv add package-name
+
+# Add development dependency
+uv add --dev package-name
+
+# Update dependencies
+uv sync
+
+# Show dependency tree
+uv tree
 ```
 
 ## License
